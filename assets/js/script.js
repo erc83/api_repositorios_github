@@ -29,6 +29,19 @@ getRepositorios("erc83",1,1 )
 
 
 
+let formulario = document.querySelector("form")
+
+let buscador = (event) => {
+    event.preventDefault()
+    console.log("provando el evento")
+}
+
+formulario.addEventListener("submit", buscador)
+
+
+
+
+
 
 
 
