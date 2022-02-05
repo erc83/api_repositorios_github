@@ -37,10 +37,54 @@ let buscador = (event) => {
 
     let resultados = document.getElementById("resultados")
 
+    // console.log(document.querySelector("#resultados"))
+
     if (nombre && pagina && reposPagina){
         Promise.all([getUser(nombre), getRepositorios(nombre, pagina, reposPagina)])
         .then(resp => {
-            console.log(resp)
+            //console.log(resp[0])
+            //console.log(resp[1])
+            let repos = ''
+            resp[1].forEach(element  => {
+                repos += `
+                <p><a href="${element.html_url}" target="_blank">${element.name}</a></p>              
+                `
+                element.html_url, element.name
+            })
+
+            resultados.innerHTML = `
+            <div class="row">
+            <div class="col-12 col-lg-6">
+                <h3>Datos de Usuario</h3>
+                <div class="w-50">
+                    <img src="${resp[0].avatar_url}" alt="" class="img-fluid">
+                </div>
+                <p>Nombre de usuario: ${resp[0].name}</p>
+                <p>Nombre de login: ${resp[0].login}</p>
+                <p>Cantidad de repositorios: ${resp[0].public_repos}</p>
+                <p>Localidad: ${resp[0].location}</p>
+                <p>Tipo de Usuario: ${resp[0].type}</p>
+            </div>
+            <div class="col-12 col-lg-6">
+                <h3>Nombre de Repositosio</h3>
+                ${repos}
+            </div>
+        </div>
+`;
+
+
+        /*
+            console.log(resp[0].avatar_url)
+            console.log(resp[0].name)
+            console.log(resp[0].login)
+            console.log(resp[0].public_repos)
+            console.log(resp[0].location)
+            console.log(resp[0].type)
+            
+            console.log(repos)
+        */
+           
+
         })
 
 
