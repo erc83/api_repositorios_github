@@ -43,7 +43,7 @@ let buscador = (event) => {
         Promise.all([getUser(nombre), getRepositorios(nombre, pagina, reposPagina)])
         .then(resp => {
             if(resp[0].message == "Not Found" ) {
-                alert("El usuario no existe, favor de ingresar otro nombre")
+                alert("El usuario no existe, favor de ingresar otro usuario")
             }else {
                     let repos = ''
                     resp[1].forEach(element  => {
