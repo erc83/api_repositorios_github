@@ -1,11 +1,11 @@
 // baseUrl = "https://api.github.com/users"
 // url User = https://api.github.com/users/erc83/repos?page=1per_page=1
 
-
+/*
 fetch("https://api.github.com/users")
 .then(response => response.json())
 .then(data => console.log(data))
-
+*/
 
 const request = async (url) => {
     const fetch_url = await fetch(url)
@@ -18,14 +18,14 @@ const getUser = async (usuario) => {
     const url = `https://api.github.com/users/${usuario}`
     return await request(url)
 }
-//getUser("erc83")
-getUser()
+getUser("erc83")
+//getUser()
 
-const getRepositorios = async () => {
-    const url = `https://api.github.com/users/erc83/repos?page=1per_page=1`
+const getRepositorios = async (usuario, pag, repos_pag) => {
+    const url = `https://api.github.com/users/${usuario}/repos?page=${pag}per_page=${repos_pag}`
     return await request(url)
 }
-getRepositorios()
+getRepositorios("erc83",1,1 )
 
 
 
