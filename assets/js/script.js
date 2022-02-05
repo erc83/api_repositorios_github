@@ -33,11 +33,20 @@ let formulario = document.querySelector("form")
 
 let buscador = (event) => {
     event.preventDefault()
-    console.log("provando el evento")
+    let usuario = document.getElementById("nombre").value
+    let pag = parseInt(document.getElementById("pagina").value)
+    let repos_pag = parseInt(document.getElementById("repoPagina").value)
+
+    let resultados = document.getElementById("resultados")
+
+    if (usuario, pag, repos_pag){
+
+    }else{
+        alert("No se puede consultar")
+    }
 }
 
 formulario.addEventListener("submit", buscador)
-
 
 
 
